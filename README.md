@@ -2,8 +2,8 @@
 This repository contains Python code implementing linear regression and logistic regression models. Please note that this is for educational purposes only(to demonstrate understanding of linear regression)
 
 ## Files
-1. **LinearRegression.py**: Contains the implementation of the LinearRegression class.
-2. **LogisticRegression.py**: Contains the implementation of the LogisticRegression class.
+1. **linear_regression.py**: Contains the implementation of the LinearRegression class.
+2. **logistic_regression.py**: Contains the implementation of the LogisticRegression class.
 3. **main.py**: Script to demonstrate the usage of the models models.
 
 ## Dependencies
