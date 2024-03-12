@@ -1,5 +1,3 @@
-# Linear and Logistic Regression Python Implementation
-
 ## Overview
 This repository contains Python code implementing linear regression and logistic regression models. Please note that this is for educational purposes only(to demonstrate understanding of linear regression)
 
