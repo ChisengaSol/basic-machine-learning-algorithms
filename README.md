@@ -4,16 +4,16 @@
 This repository contains Python code implementing linear regression and logistic regression models. Please note that this is for educational purposes only(to demonstrate understanding of linear regression)
 
 ## Files
-**LinearRegression.py**: Contains the implementation of the LinearRegression class.
-**LogisticRegression.py**: Contains the implementation of the LogisticRegression class.
-**main.py**: Script to demonstrate the usage of the models models.
+1. **LinearRegression.py**: Contains the implementation of the LinearRegression class.
+2. **LogisticRegression.py**: Contains the implementation of the LogisticRegression class.
+3. **main.py**: Script to demonstrate the usage of the models models.
 
 ## Dependencies
 To run the code, you need to install the following dependencies:
 
-**numpy**: For matrix computations.
-**scikit-learn**: For the classification dataset in logistic regression.
-**matplotlib**: For visualization.
+1. **numpy**: For matrix computations.
+2. **scikit-learn**: For the classification dataset in logistic regression.
+3. **matplotlib**: For visualization.
 
 You can install these dependencies by creating a virtual environment and running the command:
 ```bash
@@ -29,8 +29,8 @@ You can install these dependencies by creating a virtual environment and running
     python main.py
 ```
 ## Functionality
-**Linear Regression**: Numpy was used to generate sample data. The code includes options for updating weights with momentum and without momentum.
-**Logistic Regression**: Uses data generated from make_classification function in scikit-learn's datasets module.
+1. **Linear Regression**: Numpy was used to generate sample data. The code includes options for updating weights with momentum and without momentum.
+2. **Logistic Regression**: Uses data generated from make_classification function in scikit-learn's datasets module.
 
 You can see the usage of both regression models in the main.py file. 
 
