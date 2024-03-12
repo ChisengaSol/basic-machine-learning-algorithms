@@ -13,6 +13,7 @@ class Linear_regression:
     plt.xlabel("epoch")
     plt.ylabel("loss")
     plt.title(cve_title)
+    plt.show()
 
   def linear_function(self,x,theta):
 
