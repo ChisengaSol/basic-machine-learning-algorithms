@@ -1,17 +1,9 @@
 import numpy as np
-import matplotlib.pyplot as plt
 class LinearRegression:
     def __init__(self, lr, n_epochs):
         self.lr = lr
         self.n_epochs = n_epochs
         self.weight = None
-
-    def plot_loss(self, losses, cve_title):
-        plt.plot(losses)
-        plt.xlabel("epoch")
-        plt.ylabel("loss")
-        plt.title(cve_title)
-        plt.show()
 
     def linear_function(self, x, theta):
 
