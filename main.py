@@ -1,7 +1,7 @@
-import linear_regression, logistic_regression
+import linear_regression
 import numpy as np
 import matplotlib.pyplot as plt
-from utility import generate_data, split_data, split_data_1
+from utility import generate_data, split_data, split_data_1, run_logistic_regression
 
 np.random.seed(0)
 
@@ -55,10 +55,6 @@ print(
     f"x_train:{x_train.shape}, y_train: {y_train.shape}, x_test: {x_test.shape}, y_test: {y_test.shape}"
 )
 
-model = logistic_regression.LogisticRegression(lr=0.1, n_epochs=1000)
-model.fit(x_train, y_train)
-
-# Evaluate the model on the test set
-y_pred_train = model.predict(x_train)
-train_acc = model.accuracy(y_train, y_pred_train)
-print(f"The training accuracy is: {train_acc}%")
+#logistic regression
+run1 = run_logistic_regression(x_train, y_train,leaning_rate=0.1, n_epochs=1000)
+print(run1)
