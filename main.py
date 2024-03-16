@@ -1,7 +1,6 @@
-import linear_regression
 import numpy as np
 import matplotlib.pyplot as plt
-from utility import generate_data, split_data, split_data_1, run_logistic_regression
+from utility import generate_data, split_data, split_data_1, run_logistic_regression, run_linear_regression
 
 np.random.seed(0)
 
@@ -17,27 +16,8 @@ print(
 plt.plot(x_train[:, 1], y_train)
 plt.show()
 
-m = linear_regression.Linear_regression(0.01, 10)
-batch_without_momentum = m.train_batch_gradient(x_train, y_train)
-m.plot_loss(batch_without_momentum, "Batch gradient without momentum")
-
-batch_with_momentum = m.train_batch_gradient(x_train, y_train, with_momentum=True)
-m.plot_loss(batch_with_momentum, "Batch gradient with momentum")
-
-sgd_without_momentum = m.train_sgd(x_train, y_train)
-m.plot_loss(sgd_without_momentum, "sdg without momentum")
-
-sgd_with_momentum = m.train_sgd(x_train, y_train, with_momentum=True)
-m.plot_loss(sgd_with_momentum, "sdg with momentum")
-
-mini_batch_without_momentum = m.minibatch_gradient_descent(x_train, y_train)
-m.plot_loss(mini_batch_without_momentum, "mini batch without momentum")
-
-mini_batch_with_momentum = m.minibatch_gradient_descent(
-    x_train, y_train, with_momentum=True
-)
-m.plot_loss(mini_batch_with_momentum, "mini batch with momentum")
-
+#linear regression
+run_linear_regression(x_train = x_train, y_train = y_train, leaning_rate = 0.01,n_epochs = 10)
 
 from sklearn.datasets import make_classification
 
@@ -56,5 +36,8 @@ print(
 )
 
 #logistic regression
-run1 = run_logistic_regression(x_train, y_train,leaning_rate=0.1, n_epochs=1000)
+run1 = run_logistic_regression(x_train = x_train, y_train = y_train,leaning_rate=0.1, n_epochs=1000)
 print(run1)
+
+
+
