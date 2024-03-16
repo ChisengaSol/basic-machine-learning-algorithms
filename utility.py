@@ -70,9 +70,16 @@ def run_linear_regression(x_train, y_train,leaning_rate,n_epochs):
          
 
 def run_logistic_regression(x_train, y_train,leaning_rate,n_epochs):
-    model = LogisticRegression(lr=leaning_rate ,n_epochs=n_epochs)
-    model.fit(x_train, y_train)
+    model1 = LogisticRegression(lr=leaning_rate ,n_epochs=n_epochs)
+    model1.batch_grad(x_train, y_train)
 
-    y_pred_train = model.predict(x_train)
-    train_acc = model.accuracy(y_train, y_pred_train)
-    return f"The training accuracy is: {train_acc}%"
+    y_pred_train = model1.predict(x_train)
+    train_acc = model1.accuracy(y_train, y_pred_train)
+    print(f"The training accuracy when we use batch gradient without momentum is: {train_acc}%")
+
+    model2 = LogisticRegression(lr=leaning_rate ,n_epochs=n_epochs)
+    model2.batch_grad_with_momentum(x_train, y_train)
+
+    y_pred_train1 = model2.predict(x_train)
+    train_acc1 = model2.accuracy(y_train, y_pred_train1)
+    print(f"The training accuracy when we use batch gradient with momentum is: {train_acc1}%")

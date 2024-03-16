@@ -28,8 +28,23 @@ class LogisticRegression:
 
     def predict(self, x):
         return (self.predict_proba(x) >= 0.5).astype(int)
+    
+    def get_momentum(self, momentum, beta, grad):
+        return momentum * beta + (1 - beta) * grad
+    
+    #handle gradient desent
+    def gradient_descent(self, x, y,with_momentum = False,beta=0.99):
+        ypred = self.sigmoid(x)
+        grad = (-1 / x.shape[0]) * (x.T @ (y - ypred))
+        if with_momentum:
+            momentum = 0.0
+            momentum = self.get_momentum(momentum, beta, grad)
+            self.w = self.w - self.lr * momentum
+        else:
+            self.w = self.w - self.lr * grad
 
-    def fit(self, x, y):
+    #function fits the model
+    def batch_grad(self, x, y):
         # Add ones to x
         x = self.add_ones(x)
 
@@ -37,9 +52,22 @@ class LogisticRegression:
         self.w = np.zeros((x.shape[1], 1))
 
         for epoch in range(self.n_epochs):
-            ypred = self.sigmoid(x)
-            grad = (-1 / x.shape[0]) * (x.T @ (y - ypred))
-            self.w = self.w - self.lr * grad
+            self.gradient_descent(x, y)
+            loss = self.cross_entropy(x, y)
+            self.train_losses.append(loss)
+
+            if epoch % 100 == 0:
+                print(f"loss for epoch {epoch}: {loss}")
+
+    def batch_grad_with_momentum(self, x, y):
+        # Add ones to x
+        x = self.add_ones(x)
+
+        # Initialize w to zeros vector
+        self.w = np.zeros((x.shape[1], 1))
+
+        for epoch in range(self.n_epochs):
+            self.gradient_descent(x, y,with_momentum=True)
             loss = self.cross_entropy(x, y)
             self.train_losses.append(loss)
 

@@ -37,7 +37,7 @@ print(
 
 #logistic regression
 run1 = run_logistic_regression(x_train = x_train, y_train = y_train,leaning_rate=0.1, n_epochs=1000)
-print(run1)
+run1
 
 
 
