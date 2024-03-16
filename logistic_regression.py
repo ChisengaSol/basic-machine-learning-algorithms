@@ -1,9 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
-
-np.random.seed(0)
-
-
 class LogisticRegression:
     def __init__(self, lr, n_epochs):
         self.lr = lr
