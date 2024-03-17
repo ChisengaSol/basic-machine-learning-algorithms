@@ -83,3 +83,17 @@ def run_logistic_regression(x_train, y_train,leaning_rate,n_epochs):
     y_pred_train1 = model2.predict(x_train)
     train_acc1 = model2.accuracy(y_train, y_pred_train1)
     print(f"The training accuracy when we use batch gradient with momentum is: {train_acc1}%")
+
+    model3 = LogisticRegression(lr=leaning_rate ,n_epochs=n_epochs)
+    model3.train_sgd(x_train, y_train)
+
+    y_pred_train2 = model3.predict(x_train)
+    train_acc2 = model3.accuracy(y_train, y_pred_train2)
+    print(f"The training accuracy when we use sgd is: {train_acc2:.2f}%")
+
+    model4 = LogisticRegression(lr=leaning_rate ,n_epochs=n_epochs)
+    model4.train_sgd_with_momentum(x_train, y_train)
+
+    y_pred_train4 = model3.predict(x_train)
+    train_acc4 = model3.accuracy(y_train, y_pred_train4)
+    print(f"The training accuracy when we use sgd with momentum is: {train_acc4:.2f}%")
