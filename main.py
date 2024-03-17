@@ -17,6 +17,12 @@ print(
 # plt.plot(x_train[:, 1], y_train)
 # plt.show()
 
+#linear regression
+run_linear_regression(x_train = x_train, y_train = y_train, leaning_rate = 0.01,n_epochs = 10)
+
+#linear regression on test set
+run_linear_regression(x_test, y_test, leaning_rate = 0.01,n_epochs = 10)
+
 X_class, y_class = make_classification(
     n_samples=100,
     n_features=2,
@@ -31,11 +37,11 @@ print(
     f"x_train:{x_train.shape}, y_train: {y_train.shape}, x_test: {x_test.shape}, y_test: {y_test.shape}"
 )
 
-#linear regression
-run_linear_regression(x_train = x_train, y_train = y_train, leaning_rate = 0.01,n_epochs = 10)
-
 #logistic regression
 run_logistic_regression(x_train = x_train, y_train = y_train,learning_rate=0.01, n_epochs=1000)
+
+#on test logistic regression
+run_logistic_regression(x_test, y_test,learning_rate=0.01, n_epochs=1000)
 
 
 
