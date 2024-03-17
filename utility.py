@@ -69,31 +69,25 @@ def run_linear_regression(x_train, y_train,leaning_rate,n_epochs):
 
          
 
-def run_logistic_regression(x_train, y_train,leaning_rate,n_epochs):
-    model1 = LogisticRegression(lr=leaning_rate ,n_epochs=n_epochs)
-    model1.batch_grad(x_train, y_train)
+def run_logistic_regression(x_train, y_train, learning_rate, n_epochs):
+    model = LogisticRegression(lr=learning_rate, n_epochs=n_epochs)
 
-    y_pred_train = model1.predict(x_train)
-    train_acc = model1.accuracy(y_train, y_pred_train)
-    print(f"The training accuracy when we use batch gradient without momentum is: {train_acc}%")
+    print("Training using Batch Gradient Descent:")
+    model.train(x_train, y_train, method='batch')
+    train_acc = model.accuracy(y_train, model.predict(x_train))
+    print(f"Training accuracy: {train_acc:.2f}%")
 
-    model2 = LogisticRegression(lr=leaning_rate ,n_epochs=n_epochs)
-    model2.batch_grad_with_momentum(x_train, y_train)
+    print("Training using Batch Gradient Descent with Momentum:")
+    model.train(x_train, y_train, method='batch', with_momentum=True)
+    train_acc = model.accuracy(y_train, model.predict(x_train))
+    print(f"Training accuracy: {train_acc:.2f}%")
 
-    y_pred_train1 = model2.predict(x_train)
-    train_acc1 = model2.accuracy(y_train, y_pred_train1)
-    print(f"The training accuracy when we use batch gradient with momentum is: {train_acc1}%")
+    print("Training using Stochastic Gradient Descent:")
+    model.train(x_train, y_train, method='sgd')
+    train_acc = model.accuracy(y_train, model.predict(x_train))
+    print(f"Training accuracy: {train_acc:.2f}%")
 
-    model3 = LogisticRegression(lr=leaning_rate ,n_epochs=n_epochs)
-    model3.train_sgd(x_train, y_train)
-
-    y_pred_train2 = model3.predict(x_train)
-    train_acc2 = model3.accuracy(y_train, y_pred_train2)
-    print(f"The training accuracy when we use sgd is: {train_acc2:.2f}%")
-
-    model4 = LogisticRegression(lr=leaning_rate ,n_epochs=n_epochs)
-    model4.train_sgd_with_momentum(x_train, y_train)
-
-    y_pred_train4 = model3.predict(x_train)
-    train_acc4 = model3.accuracy(y_train, y_pred_train4)
-    print(f"The training accuracy when we use sgd with momentum is: {train_acc4:.2f}%")
+    print("Training using Stochastic Gradient Descent with Momentum:")
+    model.train(x_train, y_train, method='sgd', with_momentum=True)
+    train_acc = model.accuracy(y_train, model.predict(x_train))
+    print(f"Training accuracy: {train_acc:.2f}%")
