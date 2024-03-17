@@ -4,7 +4,8 @@ This repository contains Python code implementing linear regression and logistic
 ## Files
 1. **linear_regression.py**: Contains the implementation of the LinearRegression class.
 2. **logistic_regression.py**: Contains the implementation of the LogisticRegression class.
-3. **main.py**: Script to demonstrate the usage of the models models.
+3. **main.py**: The main imports the datasets and runs the linear and logistic models.
+4. **utility.py**: Contains functions to handle the data(generating and splitting the data) and to run the linear and logistic models.
 
 ## Dependencies
 To run the code, you need to install the following dependencies:
